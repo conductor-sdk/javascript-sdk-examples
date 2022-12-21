@@ -1,18 +1,17 @@
-import { expect, describe, test, afterAll } from "@jest/globals";
+import { expect, describe, test } from "@jest/globals";
 import { createSimpleWorkflow, createComplexWf } from "./workflowCreator";
 import { userInfoWorker, sendEmailWorker, sendSMSWorker } from "./workers";
 import {
   OrkesApiConfig,
   orkesConductorClient,
   TaskManager,
-  TaskType,
   WorkflowExecutor,
-} from "@io-orkes/conductor-typescript";
+} from "@io-orkes/conductor-javascript";
 
 const playConfig: Partial<OrkesApiConfig> = {
-  keyId:"",
-  keySecret:"",
-  serverUrl: "https://play.orkes.io/api",
+  keyId: `${process.env.KEY_ID}`,
+  keySecret: `${process.env.KEY_SECRET}`,
+  serverUrl: `${process.env.CONDUCTOR_SERVER_URL}`
 };
 
 describe("Should create workflow Simple", () => {

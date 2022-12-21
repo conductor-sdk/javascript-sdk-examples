@@ -8,7 +8,7 @@ import {
   WorkflowDef,
   RunnerArgs,
   ConductorWorker,
-} from "@io-orkes/conductor-typescript";
+} from "@io-orkes/conductor-javascript";
 
 export const userInfoWorker = (): ConductorWorker => {
   return {

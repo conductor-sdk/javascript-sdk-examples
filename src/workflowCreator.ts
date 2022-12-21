@@ -2,7 +2,7 @@ import {
   simpleTask,
   workflow,
   switchTask,
-} from "@io-orkes/conductor-typescript";
+} from "@io-orkes/conductor-javascript";
 
 const getUserinfoSimpleTask = simpleTask("get_user_info", "get_user_info", {
   userId: "${workflow.input.userId}",
