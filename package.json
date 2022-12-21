@@ -6,7 +6,7 @@
   "author": "James Stuart Milne <jstuartmilne@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@io-orkes/conductor-typescript": "^0.0.2",
+    "@io-orkes/conductor-javascript": "^0.0.8",
     "node-fetch": "^2.6.7",
     "npm-user": "^5.0.0"
   },
@@ -24,7 +24,8 @@
     "ts-jest": "^28.0.1",
     "ts-node": "^10.7.0",
     "tsup": "^5.12.6",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "dotenv": "^16.0.1"
   },
   "tsup": {
     "target": "node16",
