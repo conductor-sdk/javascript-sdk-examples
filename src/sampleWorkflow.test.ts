@@ -9,9 +9,9 @@ import {
 } from "@io-orkes/conductor-javascript";
 
 const playConfig: Partial<OrkesApiConfig> = {
-  keyId: `${process.env.KEY_ID}`,
-  keySecret: `${process.env.KEY_SECRET}`,
-  serverUrl: `${process.env.CONDUCTOR_SERVER_URL}`
+  keyId: `${process.env.KEY}`,
+  keySecret: `${process.env.SECRET}`,
+  serverUrl: `${process.env.CONDUCTOR_SERVER_URL}`,
 };
 
 describe("Should create workflow Simple", () => {
@@ -39,6 +39,12 @@ describe("Should create workflow Simple", () => {
       input: { userId: "jim" },
     });
     await new Promise((r) => setTimeout(() => r(true), 2000));
+    console.log(
+      `\nSimple Workflow has been executed you can look into the details following this link ${process.env.CONDUCTOR_SERVER_URL?.replace(
+        "api",
+        "execution"
+      )}/${executionId}`
+    );
     const workflowStatus = await workflowExecutor.getWorkflow(
       executionId,
       true
@@ -62,7 +68,7 @@ describe("Should create workflow Complex", () => {
     const runner = new TaskManager(client, [
       userInfoWorker(),
       sendEmailWorker(),
-      sendSMSWorker()
+      sendSMSWorker(),
     ]);
     runner.startPolling();
 
@@ -73,6 +79,13 @@ describe("Should create workflow Complex", () => {
       input: { userId: "jim", notificationPref: "sms" },
     });
     await new Promise((r) => setTimeout(() => r(true), 3000));
+
+    console.log(
+      `\nComplex Workflow has been executed you can look into the details following this link ${process.env.CONDUCTOR_SERVER_URL?.replace(
+        "api",
+        "execution"
+      )}/${executionId}`
+    );
     const workflowStatus = await workflowExecutor.getWorkflow(
       executionId,
       true
