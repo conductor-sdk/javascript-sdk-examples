@@ -26,6 +26,7 @@ Export variables
 export KEY=
 export SECRET=
 export CONDUCTOR_SERVER_URL=https://play.orkes.io/api
+export NSUFFIX=someOriginalSuffixToAvoidCollisionMaybeYourNameInitials
 ```
 
 Run the main program
