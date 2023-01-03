@@ -4,19 +4,27 @@ import {
   switchTask,
 } from "@io-orkes/conductor-javascript";
 
-const getUserinfoSimpleTask = simpleTask("get_user_info", "get_user_info", {
+import {
+  GET_USER_INFO,
+  SEND_EMAIL,
+  SEND_SMS,
+  EMAIL_SEND_WORKFLOW,
+  EMAIL_SEND_WORKFLOW_COMPLEX
+} from "./constants";
+
+const getUserinfoSimpleTask = simpleTask("get_user_info", GET_USER_INFO, {
   userId: "${workflow.input.userId}",
 });
-const sendEmailSimpleTask = simpleTask("send_email", "send_email", {
+const sendEmailSimpleTask = simpleTask("send_email", SEND_EMAIL, {
   email: "${get_user_info.output.email}",
 });
 
-const sendSMSSimpleTask = simpleTask("send_sms", "send_sms", {
+const sendSMSSimpleTask = simpleTask("send_sms", SEND_SMS, {
   phoneNumber: "${get_user_info.output.phoneNumber}",
 });
 
 export const createSimpleWorkflow = () => {
-  const wf = workflow("email_send_workflow", [
+  const wf = workflow(EMAIL_SEND_WORKFLOW, [
     getUserinfoSimpleTask,
     sendEmailSimpleTask,
   ]);
@@ -29,7 +37,7 @@ export const createComplexWf = () => {
     "${workflow.input.notificationPref}",
     { email: [sendEmailSimpleTask], sms: [sendSMSSimpleTask] }
   );
-  return workflow("email_send_workflow", [
+  return workflow(EMAIL_SEND_WORKFLOW_COMPLEX, [
     getUserinfoSimpleTask,
     switchOrSMS,
   ]);
