@@ -7,6 +7,7 @@ import {
   TaskManager,
   WorkflowExecutor,
 } from "@io-orkes/conductor-javascript";
+import { GET_USER_INFO,SEND_EMAIL,SEND_SMS } from "./constants";
 
 const playConfig: Partial<OrkesApiConfig> = {
   keyId: `${process.env.KEY}`,
@@ -24,6 +25,14 @@ describe("Should create workflow Simple", () => {
       workflowExecutor.registerWorkflow(true, simpleWf)
     ).resolves.not.toThrowError();
   });
+  test("Create task definitions for task", async ()=>{
+    
+    const client = await clientPromise;
+    await expect(
+      client.metadataResource.registerTaskDef([{name:GET_USER_INFO,timeoutSeconds:3600},{name:SEND_EMAIL,timeoutSeconds:3600},{name:SEND_SMS,timeoutSeconds:3600}])
+    ).resolves.not.toThrowError();
+
+  })
   test("Start the workers and runs worklfow", async () => {
     const client = await clientPromise;
     const runner = new TaskManager(client, [
