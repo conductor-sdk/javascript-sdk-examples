@@ -302,10 +302,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.14.54.tgz#de2a4be678bd4d0d1ffbb86e6de779cde5999028"
   integrity sha512-bZBrLAIX1kpWelV0XemxBZllyRmM6vgFQQG2GdNb+r3Fkp0FOh1NJSvekXDs7jq70k4euu1cryLMfU+mTXlEpw==
 
-"@io-orkes/conductor-javascript@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@io-orkes/conductor-javascript/-/conductor-javascript-0.0.8.tgz#ed555039c958dc48667963de975a03d0fa3209aa"
-  integrity sha512-Hf5MAPzRgqfCSqvtWRFvRFX5EdAdvNhg+ZffY4U9WKxiGktHsEuqcuncmp4ilhaHZBTfvRUhNCrZPS65TcJNaw==
+"@io-orkes/conductor-javascript@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@io-orkes/conductor-javascript/-/conductor-javascript-0.0.9.tgz#aa35b5aea5231620aef60e4798fd5ac4576bb3a2"
+  integrity sha512-WhBhZQvdvDHNHFyIJI1jJVbvZ7W3G+1aB3+unXgZAFZQe6teJZaXuSu1y8yGmwbm8NHXqv4VU4x+cQXe4vJXxw==
   dependencies:
     node-fetch "^2.6.7"
 
