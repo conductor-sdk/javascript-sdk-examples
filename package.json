@@ -6,7 +6,7 @@
   "author": "James Stuart Milne <jstuartmilne@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@io-orkes/conductor-javascript": "^0.0.8",
+    "@io-orkes/conductor-javascript": "^0.0.9",
     "node-fetch": "^2.6.7",
     "npm-user": "^5.0.0"
   },

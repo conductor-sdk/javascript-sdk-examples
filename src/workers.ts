@@ -1,18 +1,8 @@
-import {
-  TaskRunner,
-  ConductorClient,
-  generate,
-  generateHTTPTask,
-  generateInlineTask,
-  TaskType,
-  WorkflowDef,
-  RunnerArgs,
-  ConductorWorker,
-} from "@io-orkes/conductor-javascript";
-
+import { ConductorWorker } from "@io-orkes/conductor-javascript";
+import { GET_USER_INFO, SEND_EMAIL, SEND_SMS } from "./constants";
 export const userInfoWorker = (): ConductorWorker => {
   return {
-    taskDefName: "get_user_info",
+    taskDefName: GET_USER_INFO,
     execute: async ({ inputData }) => {
       const userId = inputData?.userId;
       return {
@@ -28,7 +18,7 @@ export const userInfoWorker = (): ConductorWorker => {
 
 export const sendEmailWorker = (): ConductorWorker => {
   return {
-    taskDefName: "send_email",
+    taskDefName: SEND_EMAIL,
     execute: async ({ inputData }) => {
       const email = inputData?.email;
       console.log("SENDING EMAIL TO " + email);
@@ -41,7 +31,7 @@ export const sendEmailWorker = (): ConductorWorker => {
 
 export const sendSMSWorker = (): ConductorWorker => {
   return {
-    taskDefName: "send_sms",
+    taskDefName: SEND_SMS,
     execute: async ({ inputData }) => {
       const phoneNumber = inputData?.phoneNumber;
       console.log("SENDING SMS TO " + phoneNumber);
