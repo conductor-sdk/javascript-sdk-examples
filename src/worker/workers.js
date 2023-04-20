@@ -1,6 +1,10 @@
-import { GET_USER_INFO, SEND_EMAIL, SEND_SMS } from "../constants";
+const {
+  GET_USER_INFO,
+  SEND_EMAIL,
+  SEND_SMS,
+} = require("../constants");
 
-export const userInfoWorker = () => {
+const userInfo = () => {
   return {
     taskDefName: GET_USER_INFO,
     execute: async ({ inputData }) => {
@@ -16,7 +20,7 @@ export const userInfoWorker = () => {
   };
 };
 
-export const sendEmailWorker = () => {
+const sendEmail = () => {
   return {
     taskDefName: SEND_EMAIL,
     execute: async ({ inputData }) => {
@@ -29,7 +33,7 @@ export const sendEmailWorker = () => {
   };
 };
 
-export const sendSmsWorker = () => {
+const sendSms = () => {
   return {
     taskDefName: SEND_SMS,
     execute: async ({ inputData }) => {
@@ -41,3 +45,10 @@ export const sendSmsWorker = () => {
     },
   };
 };
+
+
+module.exports = {
+  userInfoWorker: userInfo,
+  sendEmailWorker: sendEmail,
+  sendSmsWorker: sendSms,
+}
