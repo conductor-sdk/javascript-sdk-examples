@@ -24,8 +24,7 @@ const sendEmail = () => {
   return {
     taskDefName: SEND_EMAIL,
     execute: async ({ inputData }) => {
-      const email = inputData?.email;
-      console.log(`Sent email to: ${email}`);
+      console.log(`Sent email to: ${inputData?.email}`);
       return {
         status: "COMPLETED",
       };
@@ -37,8 +36,7 @@ const sendSms = () => {
   return {
     taskDefName: SEND_SMS,
     execute: async ({ inputData }) => {
-      const phoneNumber = inputData?.phoneNumber;
-      console.log(`Sent SMS to: ${phoneNumber}`);
+      console.log(`Sent SMS to: ${inputData?.phoneNumber}`);
       return {
         status: "COMPLETED",
       };

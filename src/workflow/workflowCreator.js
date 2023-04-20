@@ -11,8 +11,12 @@ const {
   SEND_SMS,
 } = require("../constants");
 
-function createAndRegisterWorkflow() {
+const { clientPromise } = require("../client/apiUtil")
+
+async function createAndRegisterWorkflow() {
   const wf = createComplexWorkflow()
+  const client = await clientPromise;
+  client.metadataResource.create(wf, true);
 }
 
 const createComplexWorkflow = () => {
