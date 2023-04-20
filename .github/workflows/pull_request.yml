@@ -11,4 +11,8 @@ jobs:
       - name: Build
         run: docker build . -t javascript-sdk-examples
       - name: Run
-        run: docker run javascript-sdk-examples
+        run: >
+          docker run javascript-sdk-examples
+          -e KEY=${{ secrets.SDK_KEY }}
+          -e SECRET=${{ secrets.SDK_SECRET }}
+          -e CONDUCTOR_SERVER_URL=${{ secrets.CONDUCTOR_SERVER_URL }}
