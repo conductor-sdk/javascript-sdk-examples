@@ -4,8 +4,27 @@ const {
 
 const { clientPromise } = require("../client/apiUtil")
 const { WorkflowExecutor } = require("@io-orkes/conductor-javascript");
+const uuid = require('uuid');
 
 const sleepFor = 5;
+
+async function executeWorkflowSync() {
+    const client = await clientPromise;
+    const workflowExecutor = new WorkflowExecutor(client);
+    return await workflowExecutor.executeWorkflow(
+        {
+            name: COMPLEX_WORKFLOW_NAME,
+            version: 1,
+            input: {
+                userId: "jim",
+                notificationPref: "sms",
+            },
+        },
+        COMPLEX_WORKFLOW_NAME,
+        1,
+        uuid.v4(),
+    )
+}
 
 async function executeWorkflowAsync() {
     const client = await clientPromise;
@@ -29,5 +48,6 @@ async function executeWorkflowAsync() {
 }
 
 module.exports = {
-    executeWorkflowAsync: executeWorkflowAsync
+    executeWorkflowSync: executeWorkflowSync,
+    executeWorkflowAsync: executeWorkflowAsync,
 }

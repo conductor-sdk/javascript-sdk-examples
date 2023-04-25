@@ -83,6 +83,11 @@ There are two ways to execute a workflow:
 1. Synchronously - useful for short duration workflows that completes within a few second.
 2. Asynchronously - workflows that runs for longer period
 
+### Synchronous Workflow Execution
+```javascript
+WorkflowExecutor#executeWorkflow(...)
+```
+
 ### Asynchronous Workflow Execution
 
 ```javascript
