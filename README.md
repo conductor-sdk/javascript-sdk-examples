@@ -40,31 +40,26 @@ We create a simple 2-step workflow that fetches the user details and sends an em
 <td>
 <pre>
 
-wf = workflow("user_notification", [
-  createGetUserDetailsTask(),
-  createEmailOrSmsTask()
+const getUserDetailsTask = simpleTask(GET_USER_INFO, GET_USER_INFO, {
+  userId: "${workflow.input.userId}",
+});
+const emailOrSmsTask = switchTask("emailorsms", "${workflow.input.notificationPref}", {
+  email: [
+    simpleTask(SEND_EMAIL, SEND_EMAIL, {
+      email: "${get_user_info.output.email}",
+    })
+  ],
+  sms: [
+    simpleTask(SEND_SMS, SEND_SMS, {
+      phoneNumber: "${get_user_info.output.phoneNumber}",
+    })
+  ],
+});
+const wf = workflow(COMPLEX_WORKFLOW_NAME, [
+  getUserDetailsTask,
+  emailOrSmsTask,
 ]);
-
-const createGetUserDetailsTask = () => {
-  return simpleTask("get_user_info", "get_user_info", {
-    userId: "${workflow.input.userId}",
-  });
-}
-
-const createEmailOrSmsTask = () => {
-  return switchTask("emailorsms", "${workflow.input.notificationPref}", {
-    email: [
-      simpleTask("send_email", "send_email", {
-        email: "${get_user_info.output.email}",
-      }),
-    ]
-    sms: [
-      simpleTask("send_sms", "send_sms", {
-        phoneNumber: "${get_user_info.output.phoneNumber}",
-      })
-    ],
-  });
-}
+wf.inputParameters = ['userId', 'notificationPref']
 
 </pre>
 </td>
