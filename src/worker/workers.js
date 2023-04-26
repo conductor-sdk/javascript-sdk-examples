@@ -1,6 +1,10 @@
-import { ConductorWorker } from "@io-orkes/conductor-javascript";
-import { GET_USER_INFO, SEND_EMAIL, SEND_SMS } from "./constants";
-export const userInfoWorker = (): ConductorWorker => {
+const {
+  GET_USER_INFO,
+  SEND_EMAIL,
+  SEND_SMS,
+} = require("../constants");
+
+const userInfo = () => {
   return {
     taskDefName: GET_USER_INFO,
     execute: async ({ inputData }) => {
@@ -16,12 +20,11 @@ export const userInfoWorker = (): ConductorWorker => {
   };
 };
 
-export const sendEmailWorker = (): ConductorWorker => {
+const sendEmail = () => {
   return {
     taskDefName: SEND_EMAIL,
     execute: async ({ inputData }) => {
-      const email = inputData?.email;
-      console.log("SENDING EMAIL TO " + email);
+      console.log(`Sent email to: ${inputData?.email}`);
       return {
         status: "COMPLETED",
       };
@@ -29,15 +32,21 @@ export const sendEmailWorker = (): ConductorWorker => {
   };
 };
 
-export const sendSMSWorker = (): ConductorWorker => {
+const sendSms = () => {
   return {
     taskDefName: SEND_SMS,
     execute: async ({ inputData }) => {
-      const phoneNumber = inputData?.phoneNumber;
-      console.log("SENDING SMS TO " + phoneNumber);
+      console.log(`Sent SMS to: ${inputData?.phoneNumber}`);
       return {
         status: "COMPLETED",
       };
     },
   };
 };
+
+
+module.exports = {
+  userInfoWorker: userInfo,
+  sendEmailWorker: sendEmail,
+  sendSmsWorker: sendSms,
+}
