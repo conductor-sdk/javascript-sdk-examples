@@ -2,7 +2,7 @@
 This repository contains sample applications that demonstrates the various features of Conductor Javascript SDK.
 
 ## SDK Features
-C# SDK for Conductor allows you to:
+JS SDK for Conductor allows you to:
 1. Create workflow using Code
 2. Execute workflows
 3. Create workers for task execution and framework (TaskRunner) for executing workers and communicating with the server.
