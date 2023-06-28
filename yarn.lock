@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@io-orkes/conductor-javascript@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@io-orkes/conductor-javascript/-/conductor-javascript-1.0.0.tgz#7974b7a25efeb4103319d872e9b113856154feca"
-  integrity sha512-uSxxoYvtY4nR/7rMAQfvJU1mdgYDtlsrERrHurwXhG0GmxUQu2qvY5W3jhPnPRbp8jUGLbOuEp2Yeb0stmM3xg==
+"@io-orkes/conductor-javascript@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@io-orkes/conductor-javascript/-/conductor-javascript-1.1.0.tgz#1e58bbb62a0184b04c099553dcd70473accefe22"
+  integrity sha512-7GrvJkMIc0OasCUls/L9qgpuHRHAeXJPgvhqKHmnRpH1hXo3CZLQP31eDo0/79pcxB17ggbHuaCoqJKBpSTI2w==
   dependencies:
     uuid "^9.0.0"
 
