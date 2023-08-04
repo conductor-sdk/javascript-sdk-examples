@@ -13,6 +13,7 @@ async function main() {
     await runSync();
     await runAsync();
     await taskManager.stopPolling();
+    process.exit(0);
 }
 
 async function runSync() {
