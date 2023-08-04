@@ -11,6 +11,9 @@ const fraudCheckWorker = {
       status: "COMPLETED",
     };
   },
+  domain: "fraud", // Optional
+  pollInterval: 100, // Optional can be specified in the TaskManager
+  concurrency: 1, // Optional can be specified in the TaskManager
 };
 // docs-marker-end-1
 
