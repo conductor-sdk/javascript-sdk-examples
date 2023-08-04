@@ -2,14 +2,39 @@
 # yarn lockfile v1
 
 
-"@io-orkes/conductor-javascript@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@io-orkes/conductor-javascript/-/conductor-javascript-1.1.0.tgz#1e58bbb62a0184b04c099553dcd70473accefe22"
-  integrity sha512-7GrvJkMIc0OasCUls/L9qgpuHRHAeXJPgvhqKHmnRpH1hXo3CZLQP31eDo0/79pcxB17ggbHuaCoqJKBpSTI2w==
+"@io-orkes/conductor-javascript@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@io-orkes/conductor-javascript/-/conductor-javascript-1.2.2.tgz#b285cfe0732a901623b6bf3a9f2d4ff02b2b81f8"
+  integrity sha512-o5dm6FZ/rHjtl7bNvadd1x2TvoZ/Z7urL2wZzsjvwc7DSgw1YPvksSKJR+m3zaFigYAh+5MEXl/AxpHA9LKTBA==
   dependencies:
-    uuid "^9.0.0"
+    node-fetch "^2.6.12"
+
+node-fetch@^2.6.12:
+  version "2.6.12"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.12.tgz#02eb8e22074018e3d5a83016649d04df0e348fba"
+  integrity sha512-C/fGU2E8ToujUivIO0H+tpQ6HWo4eEmchoPIoXtxCrVghxdKq+QOHqEZW7tuP3KlV3bC8FRMO5nMCC7Zm1VP6g==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+tr46@~0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
+  integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
 uuid@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
   integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
+
+webidl-conversions@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
+  integrity sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==
+
+whatwg-url@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-5.0.0.tgz#966454e8765462e37644d3626f6742ce8b70965d"
+  integrity sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==
+  dependencies:
+    tr46 "~0.0.3"
+    webidl-conversions "^3.0.0"
